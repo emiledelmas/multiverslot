@@ -170,46 +170,43 @@ $(document).ready(function() {
         $('#control').attr("disabled", true);
     }
 
-    function printResult() {
-        var res;
-        if(win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
-            res = "You Win!";
-        } else {
-            res = "You Lose";
-        }
-        $('#result').html(res);
-    }
+    // function printResult() {
+    //     var res;
+    //     if(win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
+    //         res = "You Win!";
+    //     } else {
+    //         res = "You Lose";
+    //     }
+    //     $('#result').html(res);
+    // }
 
     //create slot objects
     var a = new Slot('#slot1', 30, 1),
-        b = new Slot('#slot2', 45, 2),
-        c = new Slot('#slot3', 70, 3);
+        b = new Slot('#slot2', 45, 2);
 
     /**
     * Slot machine controller
     */
     $('#control').click(function() {
         var x;
-        if(this.innerHTML == "Start") {
+        if(this.innerHTML == "Lancer") {
             a.start();
             b.start();
-            c.start();
-            this.innerHTML = "Stop";
+            this.innerHTML = "Arreter";
             
             disableControl(); //disable control until the slots reach max speed
             
             //check every 100ms if slots have reached max speed 
             //if so, enable the control
             x = window.setInterval(function() {
-                if(a.speed >= a.maxSpeed && b.speed >= b.maxSpeed && c.speed >= c.maxSpeed) {
+                if(a.speed >= a.maxSpeed && b.speed >= b.maxSpeed) {
                     enableControl();
                     window.clearInterval(x);
                 }
             }, 100);
-        } else if(this.innerHTML == "Stop") {
+        } else if(this.innerHTML == "Arreter") {
             a.stop();
             b.stop();
-            c.stop();
             this.innerHTML = "Reset";
 
             disableControl(); //disable control until the slots stop
@@ -217,7 +214,7 @@ $(document).ready(function() {
             //check every 100ms if slots have stopped
             //if so, enable the control
             x = window.setInterval(function() {
-                if(a.speed === 0 && b.speed === 0 && c.speed === 0 && completed === 3) {
+                if(a.speed === 0 && b.speed === 0  && completed === 2) {
                     enableControl();
                     window.clearInterval(x);
                     printResult();
@@ -226,8 +223,8 @@ $(document).ready(function() {
         } else { //reset
             a.reset();
             b.reset();
-            c.reset();
-            this.innerHTML = "Start";
+        
+            this.innerHTML = "Lancer";
         }
     });
 });
