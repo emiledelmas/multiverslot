@@ -6,9 +6,23 @@
 <meta name="description" content="Welcome to the Javascript version of Slot Machine written by Saurabh Odhyan"> 
 <meta name="keywords" content="javascript, jquery, spritely, animation, sprite, background position, slot, game, games, saurabh, odhyan">
 <style>
+	@import url(https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,800&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap);
 body {
-	font-family:verdana,arial;
+	font-style: italic;
+font-family: Barlow Semi Condensed,sans-serif;
+text-transform: uppercase;
+font-weight: bold;
 	padding:20px;
+}
+input[type="text"]
+{
+	font-style: italic;
+font-family: Barlow Semi Condensed,sans-serif;
+text-transform: uppercase;
+font-weight: bold;
+font-size: 80px;
+text-align: center;
+width: 400px;
 }
 .bd {
 	text-align:center;
@@ -78,6 +92,8 @@ button {
 	<div class="container">
 
 		<div class="slot-wrapper">
+		<div style="height:150px;"><input type="text" style="border:0px solid transparent;outline:10px solid #000;background-color: transparent;transform: skewX(-10deg);"></div>
+		<div style="height:150px;"><input type="text" style="border:0px solid transparent;outline:10px solid #000;background-color: transparent;transform: skewX(-10deg);"></div>
 			
 			<div id="slot1" class="slot"></div>
 			<div id="slot2" class="slot"></div>
