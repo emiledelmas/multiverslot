@@ -13,26 +13,26 @@ $(document).ready(function() {
     * Global variables
     */
     var completed = 0,
-        imgHeight = 1374,
+        imgHeight = 6870,
         posArr = [
             0, //orange
-            80, //number 7 
-            165, //bar
-            237, //guava
-            310, //banana
-            378, //cherry
-            454, //orange
-            539, //number 7
-            624, //bar
-            696, //guava
-            769, //banana
-            837, //cherry
-            913, //orange
-            1000, //number 7
-            1085, //bar
-            1157, //guava
-            1230, //banana
-            1298 //cherry
+            400, //number 7 
+            825, //bar
+            1185, //guava
+            1550, //banana
+            1890, //cherry
+            2270, //orange
+            2655, //number 7
+            3120, //bar
+            3480, //guava
+            3845, //banana
+            4185, //cherry
+            4565, //orange
+            5000, //number 7
+            5425, //bar
+            5785, //guava
+            6150, //banana
+            6490 //cherry
         ];
     
     var win = [];
@@ -56,7 +56,7 @@ $(document).ready(function() {
         this.pos = null; //final position of the slot    
 
         $(el).pan({
-            fps:30,
+            fps:60,
             dir:'down'
         });
         $(el).spStop();
@@ -84,7 +84,7 @@ $(document).ready(function() {
     */
     Slot.prototype.stop = function() {
         var _this = this,
-            limit = 30;
+            limit = 300;
         clearInterval(_this.si);
         _this.si = window.setInterval(function() {
             if(_this.speed > limit) {
@@ -181,8 +181,8 @@ $(document).ready(function() {
     // }
 
     //create slot objects
-    var a = new Slot('#slot1', 30, 1),
-        b = new Slot('#slot2', 45, 2);
+    var a = new Slot('#slot1', 80, 10),
+        b = new Slot('#slot2', 100, 15);
 
     /**
     * Slot machine controller
